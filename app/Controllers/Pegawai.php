@@ -76,7 +76,24 @@ foreach ($pegawai as &$value) {
                     'required' => '{field} Belum Dipilih',
                         ]
              ]
+
+             
         ])){
+
+        // ✅ Proses upload file setelah validasi
+        $namaPegawai = $this->request->getPost('nama_pegawai');
+
+        $file = $this->request->getFile('berkas');
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $slugNama = url_title($namaPegawai, '-', true); // Contoh: "Budi Santoso" → "budi-santoso"
+            $newName = $slugNama . '-' . time() . '.pdf';
+            $file->move('uploads/pdf', $newName);
+            $pdfPath = 'uploads/pdf/' . $newName;
+        } else {
+            session()->setFlashdata('error', 'Upload file gagal.');
+            return redirect()->to(base_url('Pegawai'))->withInput();
+        }
+
             $data = [
                 'NIP' => $this->request->getPost('NIP'),
                 'NIK' => base64_encode($encrypter->encrypt($this->request->getPost('NIK'))), // Enkripsi NIK
@@ -84,6 +101,7 @@ foreach ($pegawai as &$value) {
                 'alamat' => $this->request->getPost('alamat'),
                 'no_hp' => $this->request->getPost('no_hp'),
                 'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+                'berkas' => $pdfPath,
                 'gaji' => $this->request->getPost('gaji'),
                 'tunjangan' => $this->request->getPost('tunjangan'),
                 'id_unit_kerja' => $this->request->getPost('id_unit_kerja'),

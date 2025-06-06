@@ -36,7 +36,7 @@ class View extends BaseController
 
     $data = [
         'judul' => 'Master Data',
-        'subjudul' => 'View',
+        'subjudul' => 'Tampilan informasi Pegawai',
         'menu' => 'masterdata',
         'submenu' => 'view',
         'page' => 'v_view',

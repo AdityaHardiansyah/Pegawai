@@ -1,0 +1,7 @@
+1. Login
+2. Enkirpsi Password
+3. Masking Data NIK
+4. Kombinasi Password
+5. Export Excel
+7. Input PDF
+8. View PDF
