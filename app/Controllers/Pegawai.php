@@ -85,6 +85,7 @@ foreach ($pegawai as &$value) {
                 'no_hp' => $this->request->getPost('no_hp'),
                 'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
                 'gaji' => $this->request->getPost('gaji'),
+                'tunjangan' => $this->request->getPost('tunjangan'),
                 'id_unit_kerja' => $this->request->getPost('id_unit_kerja'),
                 'id_posisi' => $this->request->getPost('id_posisi'),
             
@@ -128,6 +129,7 @@ foreach ($pegawai as &$value) {
                 'no_hp' => $this->request->getPost('no_hp'),
                 'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
                 'gaji' => $this->request->getPost('gaji'),
+                'tunjangan' => $this->request->getPost('tunjangan'),
                 'id_unit_kerja' => $this->request->getPost('id_unit_kerja'),
                 'id_posisi' => $this->request->getPost('id_posisi'),
         

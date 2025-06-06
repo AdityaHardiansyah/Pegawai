@@ -37,6 +37,7 @@
                   <th>Alamat</th>
                   <th>Tanggal Lahir</th>
                   <th>Gaji</th>
+                  <th>Tunjangan</th>
                   <th width="100px">Aksi</th>
                 </tr>
                   </thead>
@@ -63,6 +64,7 @@
                   <td class="text-center"><?= esc($value['alamat']) ?></td>
                   <td class="text-center"><?= esc(date('d-m-Y', strtotime($value['tanggal_lahir']))) ?></td>
                   <td>Rp. <?= esc(number_format($value['gaji'], 0)) ?></td>
+                  <td>Rp. <?= esc(number_format($value['tunjangan'], 0)) ?></td>
                   <td class="text-center">
                     <button class="btn btn-warning btn-sm btn-flat" data-toggle="modal" data-target="#edit-data<?= $value['id_pegawai']?>"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn btn-danger btn-sm btn-flat" data-toggle="modal" data-target="#delete-data<?= $value['id_pegawai']?>"><i class="fas fa-trash"></i></button>
@@ -137,6 +139,15 @@
                 <input name="gaji"  id="gaji" class="form-control" value="<?= old('gaji')?>" placeholder="Gaji Pegawai" required>
               </div>
               </div> 
+              <div class="form-group"> 
+              <label for="">Tunjangan Pegawai</label>
+              <div class="input-group mb-3"> 
+              <div class="input-group-prepend"> 
+                <span class="input-group-text">Rp.</span>
+              </div>
+                <input name="tunjangan"  id="tunjangan" class="form-control" value="<?= old('tunjangan')?>" placeholder="Tunjangan Pegawai" required>
+              </div>
+              </div> 
 
             <div class="form-group"> 
               <label for="">Nama Unit Kerja</label>
@@ -172,8 +183,8 @@
 <!-- /.Modal Edit Data -->
     <?php foreach ($pegawai as $key => $value){ ?>
           
-          <div class="modal fade" id="edit-data<?= $value['id_pegawai'] ?>">
-          <div class="modal-dialog">
+          <div class="modal fade" id="edit-data<?= $value['id_pegawai'] ?>" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Add Data <?= $subjudul ?></h4>
@@ -183,14 +194,20 @@
             </div>
             <?php echo form_open('Pegawai/UpdateData/'.$value['id_pegawai']) ?>
             <div class="modal-body">
+              <div class="row">
+              <div class="col-md-6">
               <div class="form-group">
                 <label for="">NIP Pegawai</label>
                 <input name="NIP"  value="<?= $value['NIP'] ?>" class="form-control" placeholder="NIP Pegawai" readonly>
               </div>  
+              </div>
+              <div class="col-md-6">
               <div class="form-group">
               <label for="">NIK Pegawai</label>
                 <input name="NIK"  value="<?= $value['NIK'] ?>" class="form-control" placeholder="NIK Pegawai" required>
               </div> 
+              </div>
+              </div>
               <div class="form-group">
               <label for="">Nama Pegawai</label>
                 <input name="nama_pegawai"  value="<?= $value['nama_pegawai'] ?>" class="form-control" placeholder="Nama Pegawai" required>
@@ -211,6 +228,10 @@
               <label for="">Gaji Pegawai</label>
               <input name="gaji"  value="<?= $value['gaji'] ?>" class="form-control" placeholder="gaji Pegawai" required>
               </div> 
+              <div class="form-group">
+              <label for="">Tunjangan Pegawai</label>
+              <input name="tunjangan"  value="<?= $value['tunjangan'] ?>" class="form-control" placeholder="Tunjangan Pegawai" required>
+              </div>
               <div class="form-group"> 
               <label for="">Nama Unit Kerja</label>
               <select name="id_unit_kerja" class="form-control">
