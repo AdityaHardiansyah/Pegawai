@@ -42,22 +42,3 @@
             </div>
             <!-- /.card -->
           </div>
-
- <script>
-              
-    
-      
-            // Initialization
-        new AutoNumeric('#harga_beli', {
-        currencySymbol : '',
-        decimalCharacter : ',',
-        digitGroupSeparator : '.',
-        }); 
-        new AutoNumeric('#harga_jual', {
-        currencySymbol : '',
-        decimalCharacter : ',',
-        digitGroupSeparator : '.',
-        });
-        
-        
-        </script>

@@ -87,8 +87,8 @@
 
 
            <!-- /.Modal Add Data -->
-          <div class="modal fade" id="add-data">
-          <div class="modal-dialog">
+          <div class="modal fade" id="add-data" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Add Data <?= $subjudul ?></h4>
@@ -98,13 +98,19 @@
             </div>
             <?php echo form_open('Pegawai/InsertData') ?>
             <div class="modal-body">
+              <div class="row">
+              <div class="col-md-6">
               <div class="form-group">
                 <label for="">NIP Pegawai</label>
                 <input name="NIP" class="form-control" value="<?= old('NIP')?>" placeholder="NIP Pegawai" required>
               </div> 
+              </div>
+              <div class="col-md-6">
               <div class="form-group">
                 <label for="">NIK Pegawai</label>
                 <input name="NIK" class="form-control" value="<?= old('NIK')?>" placeholder="NIK Pegawai" required>
+              </div>
+              </div>
               </div>
               <div class="form-group">
                 <label for="">Nama Pegawai</label>
@@ -135,7 +141,7 @@
             <div class="form-group"> 
               <label for="">Nama Unit Kerja</label>
               <select name="id_unit_kerja" class="form-control">
-                <option value="">--Pilih Unti Kerja--</option>
+                <option value="">--Pilih Unit Kerja--</option>
                 <?php foreach ($unitkerja as $key => $value) { ?>
                   <option value="<?= $value['id_unit_kerja']?>"><?= $value['nama_unit_kerja'] ?></option>
                   <?php }?>

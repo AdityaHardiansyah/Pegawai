@@ -46,8 +46,5 @@ class View extends BaseController
     ];
 
     return view('v_template', $data);
-}
-
-
-    
+} 
 }

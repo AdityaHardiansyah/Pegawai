@@ -47,7 +47,7 @@ public function CekLogin()
 
         $user = $this->ModelUser->LoginUser($email); // Harusnya cari berdasarkan email saja
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['password'])) { 
             session()->set('id_user', $user['id_user']);
             session()->set('nama_user', $user['nama_user']);
             session()->set('level', $user['level']);
